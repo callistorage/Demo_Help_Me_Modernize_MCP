@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Me Modernize - Government Legacy Code Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ Help Me Modernize</h1>
+            <div class="subtitle">Government Legacy Code Analysis & Modernization Tool</div>
+            <div class="subtitle">Powered by Model Context Protocol (MCP) and Claude AI</div>
+        </div>
+        
+        <div class="main-content">
+            <div class="upload-section">
+                <h3>📁 Upload Legacy Code Files</h3>
+                <p>Support for COBOL, Java, SQL, and text files. Max 50MB per file, 100 files total.</p>
+                
+                <div class="file-input">
+                    <label for="fileInput">Choose Files</label>
+                    <input type="file" id="fileInput" multiple accept=".cob,.cbl,.cobol,.cpy,.copy,.java,.class,.sql,.ddl,.dml,.proc,.sp,.txt,.log,.cfg,.conf,.ini,.properties">
+                </div>
+                
+                <div id="selectedFiles"></div>
+            </div>
+            
+            <div class="options-section">
+                <div class="option-group">
+                    <h4>📊 Analysis Types</h4>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="analysisType" value="documentation" checked> Code Documentation</label>
+                        <label><input type="checkbox" name="analysisType" value="business-logic"> Business Logic Extraction</label>
+                        <label><input type="checkbox" name="analysisType" value="security-vulnerabilities"> Security Vulnerabilities</label>
+                        <label><input type="checkbox" name="analysisType" value="modernization-suggestions"> Modernization Suggestions</label>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h4>📄 Output Formats</h4>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="outputFormat" value="html" checked> HTML Report</label>
+                        <label><input type="checkbox" name="outputFormat" value="markdown"> Markdown</label>
+                        <label><input type="checkbox" name="outputFormat" value="json"> JSON Data</label>
+                        <label><input type="checkbox" name="outputFormat" value="text"> Plain Text</label>
+                        <label><input type="checkbox" name="outputFormat" value="pdf"> PDF Report</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="analyze-btn" onclick="analyzeFiles()" disabled>
+                🔍 Analyze Legacy Code
+            </button>
+            
+            <div id="results" class="results-section">
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Analyzing your legacy code files...</p>
+                </div>
+                <div id="resultsContent"></div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3>Government Secure</h3>
+                <p>Built for air-gapped environments with government security standards</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Analysis</h3>
+                <p>Uses Claude AI through MCP for comprehensive code understanding</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📋</div>
+                <h3>Compliance Ready</h3>
+                <p>Generates reports meeting FISMA, FedRAMP, and NIST requirements</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🔧</div>
+                <h3>Modernization Focus</h3>
+                <p>Practical recommendations for upgrading legacy government systems</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Help Me Modernize v1.0.0 - Demonstrating MCP Integration for Government Legacy Systems</p>
+        <p>Built with TypeScript, Express, and the Model Context Protocol</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
