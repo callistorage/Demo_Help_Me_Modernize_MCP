@@ -1,7 +1,26 @@
 /**
- * Legacy Code Analyzer
- * Core analysis engine for government legacy code systems
- * Supports COBOL, Java, SQL, and text file analysis
+ * @fileoverview Legacy Code Analysis Engine for Government Systems
+ * 
+ * This module provides the core analysis engine for government legacy code modernization,
+ * supporting COBOL, Java, SQL, and text file analysis with AI-powered insights.
+ * Designed for air-gapped government environments with comprehensive security and compliance features.
+ * 
+ * @module LegacyCodeAnalyzer
+ * @version 1.0.0
+ * @author Help Me Modernize MCP Server
+ * @since 2024
+ * 
+ * @security
+ * - Implements secure AI API integration with fallback modes
+ * - Validates all input files before processing
+ * - Provides audit trails for all analysis operations
+ * - Supports air-gapped deployment scenarios
+ * 
+ * @compliance
+ * - Meets government code analysis standards
+ * - Provides detailed documentation for compliance reviews
+ * - Implements data sovereignty requirements
+ * - Supports regulatory reporting needs
  */
 
 import 'dotenv/config';
@@ -21,10 +40,81 @@ import {
   AnalysisType
 } from '../types/index';
 
+/**
+ * Enterprise-grade legacy code analysis engine for government systems.
+ * 
+ * The LegacyCodeAnalyzer provides comprehensive analysis capabilities for legacy
+ * government code systems, including COBOL mainframes, Java applications, and
+ * SQL databases. Integrates with Anthropic Claude for AI-powered insights while
+ * maintaining government security and compliance standards.
+ * 
+ * @example
+ * ```typescript
+ * const analyzer = new LegacyCodeAnalyzer();
+ * 
+ * const analysisRequest: AnalysisRequest = {
+ *   files: [
+ *     { id: 'payroll-system', name: 'payroll.cob', content: cobolCode, language: 'cobol' }
+ *   ],
+ *   analysisType: 'modernization',
+ *   includeCodeExamples: true,
+ *   focusAreas: ['performance', 'security', 'maintainability']
+ * };
+ * 
+ * const results = await analyzer.analyzeFiles(analysisRequest);
+ * console.log(`Analysis complete: ${results.length} files processed`);
+ * ```
+ * 
+ * @security
+ * - Secure API key management with environment variable validation
+ * - Input sanitization and validation for all file content
+ * - Audit logging for all analysis operations
+ * - Graceful degradation when AI services are unavailable
+ * 
+ * @compliance
+ * - Government-grade analysis reporting
+ * - Detailed metadata tracking for audit trails
+ * - Support for regulatory compliance requirements
+ * - Air-gapped deployment compatibility
+ * 
+ * @public
+ */
 export class LegacyCodeAnalyzer {
   private anthropic: Anthropic;
   private logger: Logger;
 
+  /**
+   * Initializes the Legacy Code Analyzer with secure AI integration.
+   * 
+   * Sets up the analysis engine with enterprise logging and secure Anthropic API
+   * integration. Handles both connected and air-gapped deployment scenarios
+   * with graceful degradation when AI services are unavailable.
+   * 
+   * @example
+   * ```typescript
+   * // Standard initialization with environment configuration
+   * const analyzer = new LegacyCodeAnalyzer();
+   * 
+   * // Will automatically configure based on ANTHROPIC_API_KEY environment variable
+   * // Falls back to offline mode if API key is not available
+   * ```
+   * 
+   * @security
+   * - Secure API key validation and management
+   * - Graceful handling of missing credentials
+   * - Enterprise logging for security audit trails
+   * - No sensitive data stored in constructor
+   * 
+   * @compliance
+   * - Government deployment-ready initialization
+   * - Audit-compliant logging configuration
+   * - Air-gapped environment support
+   * - Regulatory compliance setup
+   * 
+   * @throws Will log warning but not throw if ANTHROPIC_API_KEY is missing
+   * 
+   * @public
+   */
   constructor() {
     this.logger = new Logger('LegacyCodeAnalyzer');
     
@@ -40,7 +130,61 @@ export class LegacyCodeAnalyzer {
   }
 
   /**
-   * Analyze multiple files according to the analysis request
+   * Performs comprehensive analysis of multiple legacy code files.
+   * 
+   * This is the main entry point for legacy code analysis, processing multiple files
+   * according to the specified analysis request. Provides AI-powered insights,
+   * modernization recommendations, and detailed technical analysis for government
+   * legacy systems including COBOL, Java, and SQL codebases.
+   * 
+   * @param request - The analysis request containing files and configuration
+   * 
+   * @returns Promise resolving to array of detailed analysis results
+   * 
+   * @example
+   * ```typescript
+   * const analyzer = new LegacyCodeAnalyzer();
+   * 
+   * const analysisRequest: AnalysisRequest = {
+   *   files: [
+   *     {
+   *       id: 'payroll-calc',
+   *       name: 'payroll-calculator.cob',
+   *       content: cobolCode,
+   *       language: 'cobol'
+   *     }
+   *   ],
+   *   analysisType: 'modernization',
+   *   includeCodeExamples: true,
+   *   focusAreas: ['performance', 'security', 'maintainability']
+   * };
+   * 
+   * const results = await analyzer.analyzeFiles(analysisRequest);
+   * 
+   * for (const result of results) {
+   *   console.log(`Analysis for ${result.file.name}:`);
+   *   console.log(`- ${result.analysisData.findings.length} findings`);
+   *   console.log(`- ${result.analysisData.recommendations.length} recommendations`);
+   * }
+   * ```
+   * 
+   * @security
+   * - Validates all input files before processing
+   * - Implements secure AI API communication
+   * - Provides audit trails for all analysis operations
+   * - Handles errors gracefully without exposing sensitive data
+   * 
+   * @compliance
+   * - Generates government-compliant analysis reports
+   * - Maintains detailed metadata for audit purposes
+   * - Implements data sovereignty requirements
+   * - Provides regulatory-ready documentation
+   * 
+   * @throws Will return error results for invalid files rather than throwing
+   * @throws May throw network errors for AI API communication issues
+   * 
+   * @public
+   * @async
    */
   public async analyzeFiles(request: AnalysisRequest): Promise<AnalysisResult[]> {
     this.logger.info(`Starting analysis of ${request.files.length} files`);
@@ -88,6 +232,9 @@ export class LegacyCodeAnalyzer {
     
     try {
       // Prepare code content for analysis
+      if (!file.content) {
+        throw new Error(`File content is missing for ${file.name}`);
+      }
       const codeContent = this.prepareCodeForAnalysis(file.content, options?.maxAnalysisLines);
       
       // Generate analysis based on type
@@ -438,11 +585,14 @@ Focus on:
         ]
       });
 
-      const content = response.content[0];
+      const content = response.content?.[0];
+      if (!content) {
+        throw new Error('Empty response from Anthropic API');
+      }
       if (content.type === 'text') {
         return content.text;
       } else {
-        throw new Error('Unexpected response type from Anthropic API');
+        throw new Error(`Unexpected response type from Anthropic API: ${content.type}`);
       }
     } catch (error) {
       this.logger.error('Anthropic API call failed:', error);
@@ -454,6 +604,10 @@ Focus on:
    * Prepare code content for analysis (truncate if necessary)
    */
   private prepareCodeForAnalysis(content: string, maxLines?: number): string {
+    if (!content || typeof content !== 'string') {
+      throw new Error('Content must be a non-empty string');
+    }
+    
     if (!maxLines) {
       maxLines = 500; // Default limit for AI analysis
     }

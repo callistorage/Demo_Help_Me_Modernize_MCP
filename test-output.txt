@@ -1,0 +1,1340 @@
+● Validation Warning:
+
+  Unknown option "moduleNameMapping" with value {"^@/(.*)$": "<rootDir>/src/$1"} was found.
+  This is probably a typing mistake. Fixing it will remove this message.
+
+  Configuration Documentation:
+  https://jestjs.io/docs/configuration
+
+● Validation Warning:
+
+  Unknown option "moduleNameMapping" with value {"^@/(.*)$": "<rootDir>/src/$1"} was found.
+  This is probably a typing mistake. Fixing it will remove this message.
+
+  Configuration Documentation:
+  https://jestjs.io/docs/configuration
+
+PASS tests/unit/LegacyCodeAnalyzer.test.ts
+  LegacyCodeAnalyzer
+    Basic Analysis Flow
+      √ should analyze a single COBOL file (23 ms)
+      √ should analyze multiple files (1 ms)
+      √ should handle multiple analysis types for a single file (1 ms)
+    Language Support
+      √ should analyze COBOL files (2 ms)
+      √ should analyze Java files (1 ms)
+      √ should analyze SQL files (1 ms)
+    Error Handling
+      √ should handle empty file list gracefully (1 ms)
+      √ should handle files with empty content (1 ms)
+      √ should handle large files (1 ms)
+    Analysis Options
+      √ should respect custom analysis options (1 ms)
+      √ should handle missing options gracefully (1 ms)
+    Result Structure
+      √ should return properly structured results (1 ms)
+      √ should have consistent IDs and timestamps (2 ms)
+    Batch Processing
+      √ should handle mixed file types in a single request (2 ms)
+      √ should maintain analysis type consistency across files (1 ms)
+    Performance Considerations
+      √ should complete analysis within reasonable time limits (1 ms)
+      √ should handle concurrent analysis requests (1 ms)
+
+FAIL tests/unit/FileProcessor.test.ts
+  FileProcessor
+    File Processing
+      √ should process a valid COBOL file successfully (20 ms)
+      √ should process a valid Java file successfully (2 ms)
+      √ should process a valid SQL file successfully (1 ms)
+      √ should handle files with specified language override (1 ms)
+      √ should reject empty files (1 ms)
+      √ should reject oversized files (1 ms)
+    Base64 File Upload
+      √ should handle base64 encoded files (1 ms)
+      × should handle invalid base64 gracefully (4 ms)
+    File Validation Edge Cases
+      √ should handle files with dangerous names (1 ms)
+      √ should warn about large files but still process them (3 ms)
+      √ should detect binary content and reject it (1 ms)
+    Processing Statistics
+      √ should provide configuration statistics (1 ms)
+    Language Support
+      √ should support all expected languages (1 ms)
+      √ should handle unknown languages gracefully (1 ms)
+    Error Handling
+      √ should handle extremely long filenames
+      √ should handle files with null characters (1 ms)
+
+  ● FileProcessor › Base64 File Upload › should handle invalid base64 gracefully
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+    [0m [90m 107 |[39m       )[33m;[39m
+     [90m 108 |[39m
+    [31m[1m>[22m[39m[90m 109 |[39m       expect(result[33m.[39msuccess)[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m                              [31m[1m^[22m[39m
+     [90m 110 |[39m       expect(result[33m.[39merror)[33m.[39mtoContain([32m'decode'[39m)[33m;[39m
+     [90m 111 |[39m     })[33m;[39m
+     [90m 112 |[39m   })[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/FileProcessor.test.ts:109:30)
+
+FAIL tests/unit/OutputGenerator.test.ts
+  OutputGenerator
+    Multi-format Output Generation
+      × should generate multiple output formats (27 ms)
+      √ should generate single format outputs (1 ms)
+      √ should include all analysis data in outputs (1 ms)
+    HTML Output
+      √ should generate valid HTML structure (1 ms)
+      × should include styling and be self-contained
+      × should properly escape HTML content
+    Markdown Output
+      × should generate valid Markdown structure (1 ms)
+      × should format findings and recommendations properly (1 ms)
+    JSON Output
+      × should generate valid JSON with proper structure (1 ms)
+      × should include comprehensive metadata (1 ms)
+    Text Output
+      × should generate readable plain text
+      √ should use consistent formatting with separators
+    PDF Output
+      √ should generate valid PDF output (43 ms)
+      √ should have proper PDF filename (4 ms)
+    Government Report Generation
+      √ should generate government-specific reports (1 ms)
+      √ should include risk assessment (1 ms)
+      √ should generate appropriate recommended actions
+      √ should include compliance checks (1 ms)
+    Error Handling
+      × should handle empty results gracefully
+      √ should continue with other formats if one fails
+      √ should handle malformed analysis results (1 ms)
+    Multiple Analysis Results
+      × should handle multiple files and analysis types (1 ms)
+      × should aggregate statistics correctly (1 ms)
+    Performance
+      √ should handle large result sets efficiently (1 ms)
+
+  ● OutputGenerator › Multi-format Output Generation › should generate multiple output formats
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "# Legacy Code Analysis Report"
+    Received string:    "# 🏛️ Legacy Code Analysis Report·
+    **Government Code Modernization Assessment**··
+    Generated: 8/19/2025, 8:07:47 PM·
+    ## 📊 Summary·
+    | Metric | Count |
+    |--------|-------|
+    | Files Analyzed | 1 |
+    | Total Findings | 1 |
+    | Recommendations | 1 |
+    | Analysis Types | 1 |·
+    ## 📄 payroll.cob (COBOL)·
+    ### 📊 Documentation·
+    **Summary:** COBOL payroll calculation program with employee record processing·
+    #### 🔍 Findings (1)·
+    - **Deprecated COBOL syntax** (MEDIUM)
+      Uses older COBOL patterns that could be modernized
+      *Lines 10-15*·
+    #### 💡 Recommendations (1)·
+    - **Update to modern COBOL syntax** (high priority)
+      Replace deprecated constructs with modern equivalents
+      *Effort: medium | Benefits: Improved maintainability, Better readability*·
+    **Analysis Metadata:** Lines: 150 | Functions: 5 | Complexity: 12/10 | Patterns: file-processing, batch-calculation··
+    ---·
+    *Generated by Help Me Modernize - Government Legacy Code Analysis Tool*"
+
+    [0m [90m 84 |[39m       expect(htmlOutput[33m![39m[33m.[39mmimeType)[33m.[39mtoBe([32m'text/html'[39m)[33m;[39m
+     [90m 85 |[39m       
+    [31m[1m>[22m[39m[90m 86 |[39m       expect(markdownOutput[33m![39m[33m.[39mcontent)[33m.[39mtoContain([32m'# Legacy Code Analysis Report'[39m)[33m;[39m
+     [90m    |[39m                                       [31m[1m^[22m[39m
+     [90m 87 |[39m       expect(markdownOutput[33m![39m[33m.[39mmimeType)[33m.[39mtoBe([32m'text/markdown'[39m)[33m;[39m
+     [90m 88 |[39m       
+     [90m 89 |[39m       expect(() [33m=>[39m [33mJSON[39m[33m.[39mparse(jsonOutput[33m![39m[33m.[39mcontent))[33m.[39mnot[33m.[39mtoThrow()[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:86:39)
+
+  ● OutputGenerator › HTML Output › should include styling and be self-contained
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "css"
+    Received string:    "<!DOCTYPE html>
+    <html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+        <title>Legacy Code Analysis Report</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            .header {
+                background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+            .header .subtitle {
+                margin: 10px 0 0 0;
+                font-size: 1.2em;
+                opacity: 0.9;
+            }
+            .summary {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+            .summary-card {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .summary-card h3 {
+                margin: 0 0 10px 0;
+                color: #1e3a8a;
+            }
+            .summary-card .number {
+                font-size: 2em;
+                font-weight: bold;
+                color: #3b82f6;
+            }
+            .file-section {
+                background: white;
+                margin-bottom: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+            .file-header {
+                background: #1e3a8a;
+                color: white;
+                padding: 20px;
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+            .file-content {
+                padding: 20px;
+            }
+            .analysis-type {
+                margin-bottom: 25px;
+                border-left: 4px solid #3b82f6;
+                padding-left: 15px;
+            }
+            .analysis-type h3 {
+                color: #1e3a8a;
+                margin: 0 0 15px 0;
+            }
+            .findings, .recommendations {
+                margin-bottom: 20px;
+            }
+            .finding, .recommendation {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            .finding.high, .finding.critical {
+                border-left: 4px solid #dc2626;
+            }
+            .finding.medium {
+                border-left: 4px solid #f59e0b;
+            }
+            .finding.low {
+                border-left: 4px solid #10b981;
+            }
+            .finding-title, .rec-title {
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+            .severity {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .severity.critical { background: #fca5a5; color: #7f1d1d; }
+            .severity.high { background: #fcd34d; color: #78350f; }
+            .severity.medium { background: #fed7aa; color: #9a3412; }
+            .severity.low { background: #86efac; color: #14532d; }
+            .priority {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: #ddd6fe;
+                color: #5b21b6;
+            }
+            .code-example {
+                background: #1f2937;
+                color: #f9fafb;
+                padding: 15px;
+                border-radius: 6px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .code-example pre {
+                margin: 0;
+                white-space: pre-wrap;
+            }
+            .metadata {
+                background: #f1f5f9;
+                padding: 15px;
+                border-radius: 6px;
+                margin-top: 20px;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                color: #6b7280;
+                border-top: 1px solid #e5e7eb;
+            }
+        </style>
+    </head>
+    <body>
+        <div class=\"header\">
+            <h1>🏛️ Legacy Code Analysis Report</h1>
+            <div class=\"subtitle\">Government Code Modernization Assessment</div>
+            <div class=\"subtitle\">Generated: 8/19/2025, 8:07:47 PM</div>
+        </div>·
+        <div class=\"summary\">
+            <div class=\"summary-card\">
+                <h3>Files Analyzed</h3>
+                <div class=\"number\">1</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Total Findings</h3>
+                <div class=\"number\">1</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Recommendations</h3>
+                <div class=\"number\">1</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Analysis Types</h3>
+                <div class=\"number\">1</div>
+            </div>
+        </div>······
+        <div class=\"file-section\">
+            <div class=\"file-header\">
+                📄 payroll.cob (COBOL)
+            </div>
+            <div class=\"file-content\">·············
+        <div class=\"analysis-type\">
+            <h3>📊 Documentation</h3>·········
+            <p><strong>Summary:</strong> COBOL payroll calculation program with employee record processing</p>··················
+            <div class=\"findings\">
+                <h4>🔍 Findings (1)</h4>·············
+                <div class=\"finding medium\">
+                    <div class=\"finding-title\">
+                        Deprecated COBOL syntax·
+                        <span class=\"severity medium\">medium</span>
+                    </div>
+                    <p>Uses older COBOL patterns that could be modernized</p>
+                    <small>Lines 10-15</small>
+                </div>·············
+            </div>···························
+            <div class=\"recommendations\">
+                <h4>💡 Recommendations (1)</h4>·············
+                <div class=\"recommendation\">
+                    <div class=\"rec-title\">
+                        Update to modern COBOL syntax
+                        <span class=\"priority\">high priority</span>
+                    </div>
+                    <p>Replace deprecated constructs with modern equivalents</p>
+                    <p><strong>Effort:</strong> medium | <strong>Benefits:</strong> Improved maintainability, Better readability</p>
+                </div>·············
+            </div>····································
+            <div class=\"metadata\">
+                <strong>Analysis Metadata:</strong>
+                Lines: 150 |·
+                Functions: 5 |·
+                Complexity: 12/10
+                 | Patterns: file-processing, batch-calculation
+            </div>
+        </div>
+            </div>
+        </div>·
+        <div class=\"footer\">
+            <p>Generated by Help Me Modernize - Government Legacy Code Analysis Tool</p>
+            <p>For questions or support, contact your system administrator</p>
+        </div>
+    </body>
+    </html>"
+
+    [0m [90m 146 |[39m       expect(htmlOutput)[33m.[39mtoContain([32m'<style>'[39m)[33m;[39m
+     [90m 147 |[39m       expect(htmlOutput)[33m.[39mtoContain([32m'font-family'[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 148 |[39m       expect(htmlOutput)[33m.[39mtoContain([32m'css'[39m)[33m;[39m
+     [90m     |[39m                          [31m[1m^[22m[39m
+     [90m 149 |[39m     })[33m;[39m
+     [90m 150 |[39m
+     [90m 151 |[39m     it([32m'should properly escape HTML content'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:148:26)
+
+  ● OutputGenerator › HTML Output › should properly escape HTML content
+
+    expect(received).not.toContain(expected) // indexOf
+
+    Expected substring: not "<script>alert(\"xss\")</script>"
+    Received string:        "<!DOCTYPE html>
+    <html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+        <title>Legacy Code Analysis Report</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            .header {
+                background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+            .header .subtitle {
+                margin: 10px 0 0 0;
+                font-size: 1.2em;
+                opacity: 0.9;
+            }
+            .summary {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+            .summary-card {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .summary-card h3 {
+                margin: 0 0 10px 0;
+                color: #1e3a8a;
+            }
+            .summary-card .number {
+                font-size: 2em;
+                font-weight: bold;
+                color: #3b82f6;
+            }
+            .file-section {
+                background: white;
+                margin-bottom: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+            .file-header {
+                background: #1e3a8a;
+                color: white;
+                padding: 20px;
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+            .file-content {
+                padding: 20px;
+            }
+            .analysis-type {
+                margin-bottom: 25px;
+                border-left: 4px solid #3b82f6;
+                padding-left: 15px;
+            }
+            .analysis-type h3 {
+                color: #1e3a8a;
+                margin: 0 0 15px 0;
+            }
+            .findings, .recommendations {
+                margin-bottom: 20px;
+            }
+            .finding, .recommendation {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            .finding.high, .finding.critical {
+                border-left: 4px solid #dc2626;
+            }
+            .finding.medium {
+                border-left: 4px solid #f59e0b;
+            }
+            .finding.low {
+                border-left: 4px solid #10b981;
+            }
+            .finding-title, .rec-title {
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+            .severity {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .severity.critical { background: #fca5a5; color: #7f1d1d; }
+            .severity.high { background: #fcd34d; color: #78350f; }
+            .severity.medium { background: #fed7aa; color: #9a3412; }
+            .severity.low { background: #86efac; color: #14532d; }
+            .priority {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: #ddd6fe;
+                color: #5b21b6;
+            }
+            .code-example {
+                background: #1f2937;
+                color: #f9fafb;
+                padding: 15px;
+                border-radius: 6px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .code-example pre {
+                margin: 0;
+                white-space: pre-wrap;
+            }
+            .metadata {
+                background: #f1f5f9;
+                padding: 15px;
+                border-radius: 6px;
+                margin-top: 20px;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                color: #6b7280;
+                border-top: 1px solid #e5e7eb;
+            }
+        </style>
+    </head>
+    <body>
+        <div class=\"header\">
+            <h1>🏛️ Legacy Code Analysis Report</h1>
+            <div class=\"subtitle\">Government Code Modernization Assessment</div>
+            <div class=\"subtitle\">Generated: 8/19/2025, 8:07:47 PM</div>
+        </div>
+
+        <div class=\"summary\">
+            <div class=\"summary-card\">
+                <h3>Files Analyzed</h3>
+                <div class=\"number\">1</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Total Findings</h3>
+                <div class=\"number\">1</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Recommendations</h3>
+                <div class=\"number\">1</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Analysis Types</h3>
+                <div class=\"number\">1</div>
+            </div>
+        </div>
+
+        
+        <div class=\"file-section\">
+            <div class=\"file-header\">
+                📄 payroll.cob (COBOL)
+            </div>
+            <div class=\"file-content\">
+                
+        <div class=\"analysis-type\">
+            <h3>📊 Documentation</h3>
+            
+            <p><strong>Summary:</strong> COBOL payroll calculation program with employee record processing</p>
+            
+            
+            <div class=\"findings\">
+                <h4>🔍 Findings (1)</h4>
+                
+                <div class=\"finding medium\">
+                    <div class=\"finding-title\">
+                        Deprecated COBOL syntax 
+                        <span class=\"severity medium\">medium</span>
+                    </div>
+                    <p>Uses <script>alert(\"xss\")</script> patterns</p>
+                    <small>Lines 10-15</small>
+                </div>
+                
+            </div>
+            
+            
+            
+            <div class=\"recommendations\">
+                <h4>💡 Recommendations (1)</h4>
+                
+                <div class=\"recommendation\">
+                    <div class=\"rec-title\">
+                        Update to modern COBOL syntax
+                        <span class=\"priority\">high priority</span>
+                    </div>
+                    <p>Replace deprecated constructs with modern equivalents</p>
+                    <p><strong>Effort:</strong> medium | <strong>Benefits:</strong> Improved maintainability, Better readability</p>
+                </div>
+                
+            </div>
+            
+            
+            
+            
+            <div class=\"metadata\">
+                <strong>Analysis Metadata:</strong>
+                Lines: 150 | 
+                Functions: 5 | 
+                Complexity: 12/10
+                 | Patterns: file-processing, batch-calculation
+            </div>
+        </div>
+            </div>
+        </div>
+
+        <div class=\"footer\">
+            <p>Generated by Help Me Modernize - Government Legacy Code Analysis Tool</p>
+            <p>For questions or support, contact your system administrator</p>
+        </div>
+    </body>
+    </html>"
+
+    [0m [90m 156 |[39m       [36mconst[39m htmlOutput [33m=[39m outputs[[35m0[39m][33m.[39mcontent[33m;[39m
+     [90m 157 |[39m
+    [31m[1m>[22m[39m[90m 158 |[39m       expect(htmlOutput)[33m.[39mnot[33m.[39mtoContain([32m'<script>alert("xss")</script>'[39m)[33m;[39m
+     [90m     |[39m                              [31m[1m^[22m[39m
+     [90m 159 |[39m       expect(htmlOutput)[33m.[39mtoContain([32m'&lt;script&gt;'[39m)[33m;[39m
+     [90m 160 |[39m     })[33m;[39m
+     [90m 161 |[39m   })[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:158:30)
+
+  ● OutputGenerator › Markdown Output › should generate valid Markdown structure
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "# Legacy Code Analysis Report"
+    Received string:    "# 🏛️ Legacy Code Analysis Report·
+    **Government Code Modernization Assessment**··
+    Generated: 8/19/2025, 8:07:47 PM·
+    ## 📊 Summary·
+    | Metric | Count |
+    |--------|-------|
+    | Files Analyzed | 1 |
+    | Total Findings | 1 |
+    | Recommendations | 1 |
+    | Analysis Types | 1 |·
+    ## 📄 payroll.cob (COBOL)·
+    ### 📊 Documentation·
+    **Summary:** COBOL payroll calculation program with employee record processing·
+    #### 🔍 Findings (1)·
+    - **Deprecated COBOL syntax** (MEDIUM)
+      Uses older COBOL patterns that could be modernized
+      *Lines 10-15*·
+    #### 💡 Recommendations (1)·
+    - **Update to modern COBOL syntax** (high priority)
+      Replace deprecated constructs with modern equivalents
+      *Effort: medium | Benefits: Improved maintainability, Better readability*·
+    **Analysis Metadata:** Lines: 150 | Functions: 5 | Complexity: 12/10 | Patterns: file-processing, batch-calculation··
+    ---·
+    *Generated by Help Me Modernize - Government Legacy Code Analysis Tool*"
+
+    [0m [90m 168 |[39m       [36mconst[39m markdownOutput [33m=[39m outputs[[35m0[39m][33m.[39mcontent[33m;[39m
+     [90m 169 |[39m
+    [31m[1m>[22m[39m[90m 170 |[39m       expect(markdownOutput)[33m.[39mtoContain([32m'# Legacy Code Analysis Report'[39m)[33m;[39m
+     [90m     |[39m                              [31m[1m^[22m[39m
+     [90m 171 |[39m       expect(markdownOutput)[33m.[39mtoContain([32m'## Analysis Results'[39m)[33m;[39m
+     [90m 172 |[39m       expect(markdownOutput)[33m.[39mtoContain([32m'### payroll.cob'[39m)[33m;[39m
+     [90m 173 |[39m       expect(markdownOutput)[33m.[39mtoContain([32m'**Language:** COBOL'[39m)[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:170:30)
+
+  ● OutputGenerator › Markdown Output › should format findings and recommendations properly
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /####\s+Findings/
+    Received string:  "# 🏛️ Legacy Code Analysis Report·
+    **Government Code Modernization Assessment**··
+    Generated: 8/19/2025, 8:07:47 PM·
+    ## 📊 Summary·
+    | Metric | Count |
+    |--------|-------|
+    | Files Analyzed | 1 |
+    | Total Findings | 1 |
+    | Recommendations | 1 |
+    | Analysis Types | 1 |·
+    ## 📄 payroll.cob (COBOL)·
+    ### 📊 Documentation·
+    **Summary:** COBOL payroll calculation program with employee record processing·
+    #### 🔍 Findings (1)·
+    - **Deprecated COBOL syntax** (MEDIUM)
+      Uses older COBOL patterns that could be modernized
+      *Lines 10-15*·
+    #### 💡 Recommendations (1)·
+    - **Update to modern COBOL syntax** (high priority)
+      Replace deprecated constructs with modern equivalents
+      *Effort: medium | Benefits: Improved maintainability, Better readability*·
+    **Analysis Metadata:** Lines: 150 | Functions: 5 | Complexity: 12/10 | Patterns: file-processing, batch-calculation··
+    ---·
+    *Generated by Help Me Modernize - Government Legacy Code Analysis Tool*"
+
+    [0m [90m 180 |[39m       [36mconst[39m markdownOutput [33m=[39m outputs[[35m0[39m][33m.[39mcontent[33m;[39m
+     [90m 181 |[39m
+    [31m[1m>[22m[39m[90m 182 |[39m       expect(markdownOutput)[33m.[39mtoMatch([35m/####\s+Findings/[39m)[33m;[39m
+     [90m     |[39m                              [31m[1m^[22m[39m
+     [90m 183 |[39m       expect(markdownOutput)[33m.[39mtoMatch([35m/####\s+Recommendations/[39m)[33m;[39m
+     [90m 184 |[39m       expect(markdownOutput)[33m.[39mtoContain([32m'- **Deprecated COBOL syntax**'[39m)[33m;[39m
+     [90m 185 |[39m       expect(markdownOutput)[33m.[39mtoContain([32m'- **Update to modern COBOL syntax**'[39m)[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:182:30)
+
+  ● OutputGenerator › JSON Output › should generate valid JSON with proper structure
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+    [0m [90m 199 |[39m       expect(parsed[33m.[39mmetadata)[33m.[39mtoBeDefined()[33m;[39m
+     [90m 200 |[39m       expect(parsed[33m.[39mresults)[33m.[39mtoHaveLength([35m1[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 201 |[39m       expect(parsed[33m.[39mgeneratedAt)[33m.[39mtoBeDefined()[33m;[39m
+     [90m     |[39m                                  [31m[1m^[22m[39m
+     [90m 202 |[39m     })[33m;[39m
+     [90m 203 |[39m
+     [90m 204 |[39m     it([32m'should include comprehensive metadata'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:201:34)
+
+  ● OutputGenerator › JSON Output › should include comprehensive metadata
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: undefined
+
+    [0m [90m 209 |[39m
+     [90m 210 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39mtotalFiles)[33m.[39mtoBe([35m1[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 211 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39mtotalFindings)[33m.[39mtoBe([35m1[39m)[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 212 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39mtotalRecommendations)[33m.[39mtoBe([35m1[39m)[33m;[39m
+     [90m 213 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39mlanguages)[33m.[39mtoContain([32m'cobol'[39m)[33m;[39m
+     [90m 214 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39manalysisTypes)[33m.[39mtoContain([32m'documentation'[39m)[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:211:47)
+
+  ● OutputGenerator › Text Output › should generate readable plain text
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "File: payroll.cob"
+    Received string:    "LEGACY CODE ANALYSIS REPORT
+    Government Code Modernization Assessment
+    Generated: 8/19/2025, 8:07:47 PM
+    ==================================================·
+    SUMMARY
+    Files Analyzed: 1
+    Total Findings: 1
+    Recommendations: 1
+    Analysis Types: 1·
+    FILE: payroll.cob (COBOL)
+    ----------------------------------------·
+    DOCUMENTATION
+    Summary: COBOL payroll calculation program with employee record processing·
+    FINDINGS (1):
+    1. Deprecated COBOL syntax (MEDIUM)
+       Uses older COBOL patterns that could be modernized
+       Location: Lines 10-15·
+    RECOMMENDATIONS (1):
+    1. Update to modern COBOL syntax (high priority)
+       Replace deprecated constructs with modern equivalents
+       Effort: medium | Benefits: Improved maintainability, Better readability·
+    Metadata: Lines: 150, Functions: 5, Complexity: 12/10··
+    Generated by Help Me Modernize - Government Legacy Code Analysis Tool
+    "
+
+    [0m [90m 224 |[39m
+     [90m 225 |[39m       expect(textOutput)[33m.[39mtoContain([32m'LEGACY CODE ANALYSIS REPORT'[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 226 |[39m       expect(textOutput)[33m.[39mtoContain([32m'File: payroll.cob'[39m)[33m;[39m
+     [90m     |[39m                          [31m[1m^[22m[39m
+     [90m 227 |[39m       expect(textOutput)[33m.[39mtoContain([32m'Language: COBOL'[39m)[33m;[39m
+     [90m 228 |[39m       expect(textOutput)[33m.[39mtoContain([32m'Deprecated COBOL syntax'[39m)[33m;[39m
+     [90m 229 |[39m       [0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:226:26)
+
+  ● OutputGenerator › Error Handling › should handle empty results gracefully
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "No analysis results"
+    Received string:    "<!DOCTYPE html>
+    <html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+        <title>Legacy Code Analysis Report</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            .header {
+                background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+            .header .subtitle {
+                margin: 10px 0 0 0;
+                font-size: 1.2em;
+                opacity: 0.9;
+            }
+            .summary {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+            .summary-card {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .summary-card h3 {
+                margin: 0 0 10px 0;
+                color: #1e3a8a;
+            }
+            .summary-card .number {
+                font-size: 2em;
+                font-weight: bold;
+                color: #3b82f6;
+            }
+            .file-section {
+                background: white;
+                margin-bottom: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+            .file-header {
+                background: #1e3a8a;
+                color: white;
+                padding: 20px;
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+            .file-content {
+                padding: 20px;
+            }
+            .analysis-type {
+                margin-bottom: 25px;
+                border-left: 4px solid #3b82f6;
+                padding-left: 15px;
+            }
+            .analysis-type h3 {
+                color: #1e3a8a;
+                margin: 0 0 15px 0;
+            }
+            .findings, .recommendations {
+                margin-bottom: 20px;
+            }
+            .finding, .recommendation {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            .finding.high, .finding.critical {
+                border-left: 4px solid #dc2626;
+            }
+            .finding.medium {
+                border-left: 4px solid #f59e0b;
+            }
+            .finding.low {
+                border-left: 4px solid #10b981;
+            }
+            .finding-title, .rec-title {
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+            .severity {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .severity.critical { background: #fca5a5; color: #7f1d1d; }
+            .severity.high { background: #fcd34d; color: #78350f; }
+            .severity.medium { background: #fed7aa; color: #9a3412; }
+            .severity.low { background: #86efac; color: #14532d; }
+            .priority {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: #ddd6fe;
+                color: #5b21b6;
+            }
+            .code-example {
+                background: #1f2937;
+                color: #f9fafb;
+                padding: 15px;
+                border-radius: 6px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .code-example pre {
+                margin: 0;
+                white-space: pre-wrap;
+            }
+            .metadata {
+                background: #f1f5f9;
+                padding: 15px;
+                border-radius: 6px;
+                margin-top: 20px;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                color: #6b7280;
+                border-top: 1px solid #e5e7eb;
+            }
+        </style>
+    </head>
+    <body>
+        <div class=\"header\">
+            <h1>🏛️ Legacy Code Analysis Report</h1>
+            <div class=\"subtitle\">Government Code Modernization Assessment</div>
+            <div class=\"subtitle\">Generated: 8/19/2025, 8:07:47 PM</div>
+        </div>·
+        <div class=\"summary\">
+            <div class=\"summary-card\">
+                <h3>Files Analyzed</h3>
+                <div class=\"number\">0</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Total Findings</h3>
+                <div class=\"number\">0</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Recommendations</h3>
+                <div class=\"number\">0</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Analysis Types</h3>
+                <div class=\"number\">0</div>
+            </div>
+        </div>·······
+        <div class=\"footer\">
+            <p>Generated by Help Me Modernize - Government Legacy Code Analysis Tool</p>
+            <p>For questions or support, contact your system administrator</p>
+        </div>
+    </body>
+    </html>"
+
+    [0m [90m 354 |[39m       [36mconst[39m jsonOutput [33m=[39m outputs[33m.[39mfind(o [33m=>[39m o[33m.[39mformat [33m===[39m [32m'json'[39m)[33m![39m[33m;[39m
+     [90m 355 |[39m
+    [31m[1m>[22m[39m[90m 356 |[39m       expect(htmlOutput[33m.[39mcontent)[33m.[39mtoContain([32m'No analysis results'[39m)[33m;[39m
+     [90m     |[39m                                  [31m[1m^[22m[39m
+     [90m 357 |[39m       
+     [90m 358 |[39m       [36mconst[39m jsonData [33m=[39m [33mJSON[39m[33m.[39mparse(jsonOutput[33m.[39mcontent)[33m;[39m
+     [90m 359 |[39m       expect(jsonData[33m.[39mresults)[33m.[39mtoHaveLength([35m0[39m)[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:356:34)
+
+  ● OutputGenerator › Multiple Analysis Results › should handle multiple files and analysis types
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Employee.java"
+    Received string:    "<!DOCTYPE html>
+    <html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+        <title>Legacy Code Analysis Report</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            .header {
+                background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+            .header .subtitle {
+                margin: 10px 0 0 0;
+                font-size: 1.2em;
+                opacity: 0.9;
+            }
+            .summary {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+            .summary-card {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .summary-card h3 {
+                margin: 0 0 10px 0;
+                color: #1e3a8a;
+            }
+            .summary-card .number {
+                font-size: 2em;
+                font-weight: bold;
+                color: #3b82f6;
+            }
+            .file-section {
+                background: white;
+                margin-bottom: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+            .file-header {
+                background: #1e3a8a;
+                color: white;
+                padding: 20px;
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+            .file-content {
+                padding: 20px;
+            }
+            .analysis-type {
+                margin-bottom: 25px;
+                border-left: 4px solid #3b82f6;
+                padding-left: 15px;
+            }
+            .analysis-type h3 {
+                color: #1e3a8a;
+                margin: 0 0 15px 0;
+            }
+            .findings, .recommendations {
+                margin-bottom: 20px;
+            }
+            .finding, .recommendation {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+            .finding.high, .finding.critical {
+                border-left: 4px solid #dc2626;
+            }
+            .finding.medium {
+                border-left: 4px solid #f59e0b;
+            }
+            .finding.low {
+                border-left: 4px solid #10b981;
+            }
+            .finding-title, .rec-title {
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+            .severity {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .severity.critical { background: #fca5a5; color: #7f1d1d; }
+            .severity.high { background: #fcd34d; color: #78350f; }
+            .severity.medium { background: #fed7aa; color: #9a3412; }
+            .severity.low { background: #86efac; color: #14532d; }
+            .priority {
+                display: inline-block;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: #ddd6fe;
+                color: #5b21b6;
+            }
+            .code-example {
+                background: #1f2937;
+                color: #f9fafb;
+                padding: 15px;
+                border-radius: 6px;
+                margin: 10px 0;
+                overflow-x: auto;
+            }
+            .code-example pre {
+                margin: 0;
+                white-space: pre-wrap;
+            }
+            .metadata {
+                background: #f1f5f9;
+                padding: 15px;
+                border-radius: 6px;
+                margin-top: 20px;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+                padding: 20px;
+                color: #6b7280;
+                border-top: 1px solid #e5e7eb;
+            }
+        </style>
+    </head>
+    <body>
+        <div class=\"header\">
+            <h1>🏛️ Legacy Code Analysis Report</h1>
+            <div class=\"subtitle\">Government Code Modernization Assessment</div>
+            <div class=\"subtitle\">Generated: 8/19/2025, 8:07:47 PM</div>
+        </div>·
+        <div class=\"summary\">
+            <div class=\"summary-card\">
+                <h3>Files Analyzed</h3>
+                <div class=\"number\">1</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Total Findings</h3>
+                <div class=\"number\">2</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Recommendations</h3>
+                <div class=\"number\">2</div>
+            </div>
+            <div class=\"summary-card\">
+                <h3>Analysis Types</h3>
+                <div class=\"number\">2</div>
+            </div>
+        </div>······
+        <div class=\"file-section\">
+            <div class=\"file-header\">
+                📄 payroll.cob (COBOL)
+            </div>
+            <div class=\"file-content\">·············
+        <div class=\"analysis-type\">
+            <h3>📊 Documentation</h3>·········
+            <p><strong>Summary:</strong> COBOL payroll calculation program with employee record processing</p>··················
+            <div class=\"findings\">
+                <h4>🔍 Findings (1)</h4>·············
+                <div class=\"finding medium\">
+                    <div class=\"finding-title\">
+                        Deprecated COBOL syntax·
+                        <span class=\"severity medium\">medium</span>
+                    </div>
+                    <p>Uses older COBOL patterns that could be modernized</p>
+                    <small>Lines 10-15</small>
+                </div>·············
+            </div>···························
+            <div class=\"recommendations\">
+                <h4>💡 Recommendations (1)</h4>·············
+                <div class=\"recommendation\">
+                    <div class=\"rec-title\">
+                        Update to modern COBOL syntax
+                        <span class=\"priority\">high priority</span>
+                    </div>
+                    <p>Replace deprecated constructs with modern equivalents</p>
+                    <p><strong>Effort:</strong> medium | <strong>Benefits:</strong> Improved maintainability, Better readability</p>
+                </div>·············
+            </div>····································
+            <div class=\"metadata\">
+                <strong>Analysis Metadata:</strong>
+                Lines: 150 |·
+                Functions: 5 |·
+                Complexity: 12/10
+                 | Patterns: file-processing, batch-calculation
+            </div>
+        </div>
+        <div class=\"analysis-type\">
+            <h3>📊 Security Vulnerabilities</h3>·········
+            <p><strong>Summary:</strong> COBOL payroll calculation program with employee record processing</p>··················
+            <div class=\"findings\">
+                <h4>🔍 Findings (1)</h4>·············
+                <div class=\"finding medium\">
+                    <div class=\"finding-title\">
+                        Deprecated COBOL syntax·
+                        <span class=\"severity medium\">medium</span>
+                    </div>
+                    <p>Uses older COBOL patterns that could be modernized</p>
+                    <small>Lines 10-15</small>
+                </div>·············
+            </div>···························
+            <div class=\"recommendations\">
+                <h4>💡 Recommendations (1)</h4>·············
+                <div class=\"recommendation\">
+                    <div class=\"rec-title\">
+                        Update to modern COBOL syntax
+                        <span class=\"priority\">high priority</span>
+                    </div>
+                    <p>Replace deprecated constructs with modern equivalents</p>
+                    <p><strong>Effort:</strong> medium | <strong>Benefits:</strong> Improved maintainability, Better readability</p>
+                </div>·············
+            </div>····································
+            <div class=\"metadata\">
+                <strong>Analysis Metadata:</strong>
+                Lines: 150 |·
+                Functions: 5 |·
+                Complexity: 12/10
+                 | Patterns: file-processing, batch-calculation
+            </div>
+        </div>
+            </div>
+        </div>·
+        <div class=\"footer\">
+            <p>Generated by Help Me Modernize - Government Legacy Code Analysis Tool</p>
+            <p>For questions or support, contact your system administrator</p>
+        </div>
+    </body>
+    </html>"
+
+    [0m [90m 417 |[39m       [36mconst[39m htmlOutput [33m=[39m outputs[33m.[39mfind(o [33m=>[39m o[33m.[39mformat [33m===[39m [32m'html'[39m)[33m![39m[33m;[39m
+     [90m 418 |[39m       expect(htmlOutput[33m.[39mcontent)[33m.[39mtoContain([32m'payroll.cob'[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 419 |[39m       expect(htmlOutput[33m.[39mcontent)[33m.[39mtoContain([32m'Employee.java'[39m)[33m;[39m
+     [90m     |[39m                                  [31m[1m^[22m[39m
+     [90m 420 |[39m
+     [90m 421 |[39m       [36mconst[39m jsonData [33m=[39m [33mJSON[39m[33m.[39mparse(outputs[33m.[39mfind(o [33m=>[39m o[33m.[39mformat [33m===[39m [32m'json'[39m)[33m![39m[33m.[39mcontent)[33m;[39m
+     [90m 422 |[39m       expect(jsonData[33m.[39mresults)[33m.[39mtoHaveLength([35m2[39m)[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:419:34)
+
+  ● OutputGenerator › Multiple Analysis Results › should aggregate statistics correctly
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 5
+    Received: 1
+
+    [0m [90m 434 |[39m       [36mconst[39m jsonData [33m=[39m [33mJSON[39m[33m.[39mparse(outputs[[35m0[39m][33m.[39mcontent)[33m;[39m
+     [90m 435 |[39m
+    [31m[1m>[22m[39m[90m 436 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39mtotalFiles)[33m.[39mtoBe([35m5[39m)[33m;[39m
+     [90m     |[39m                                            [31m[1m^[22m[39m
+     [90m 437 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39mtotalFindings)[33m.[39mtoBe([35m5[39m)[33m;[39m [90m// 1 finding per result[39m
+     [90m 438 |[39m       expect(jsonData[33m.[39mmetadata[33m.[39mtotalRecommendations)[33m.[39mtoBe([35m5[39m)[33m;[39m [90m// 1 recommendation per result[39m
+     [90m 439 |[39m       expect(jsonData[33m.[39mresults)[33m.[39mtoHaveLength([35m5[39m)[33m;[39m[0m
+
+      at Object.<anonymous> (tests/unit/OutputGenerator.test.ts:436:44)
+
+FAIL tests/integration/mcpWorkflow.test.ts
+  MCP Server Integration
+    End-to-End Workflow
+      √ should process a complete analysis workflow (38 ms)
+      × should handle multiple files and analysis types (3 ms)
+    Error Handling Integration
+      √ should handle file processing failures gracefully (1 ms)
+      √ should handle analysis failures without crashing (1 ms)
+    Component Integration
+      √ should maintain data consistency across components (1 ms)
+      √ should handle configuration consistency (1 ms)
+    Performance Integration
+      √ should handle moderate load efficiently (3 ms)
+    Output Format Integration
+      √ should generate consistent information across all formats (41 ms)
+
+  ● MCP Server Integration › End-to-End Workflow › should handle multiple files and analysis types
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 2
+    Received array:  [{"analysisType": "documentation", "fileId": "0a373b47-2953-4498-ba73-3abbafef5548", "fileName": "payroll.cob", "generatedAt": 2025-08-20T03:07:48.219Z, "id": "error-0a373b47-2953-4498-ba73-3abbafef5548-1755659268219", "language": "cobol", "processingTime": 0, "results": {"findings": [{"description": "AI analysis failed: Cannot read properties of undefined (reading 'content')", "id": "error-1755659268219", "location": {"endLine": 1, "startLine": 1}, "severity": "high", "title": "Analysis Error", "type": "error"}], "metadata": {"complexity": 0, "functionsFound": 0, "linesAnalyzed": 0, "patterns": ["error"]}, "recommendations": [{"benefits": ["Successful analysis"], "description": "Check system configuration and try again.", "effort": "low", "id": "error-rec-1755659268219", "priority": "high", "title": "Resolve Analysis Error", "type": "error-resolution"}], "riskLevel": "high", "summary": "Analysis failed: AI analysis failed: Cannot read properties of undefined (reading 'content')"}}, {"analysisType": "documentation", "fileId": "c5a8c22f-bde2-4fb9-b275-45ab5b2c22a0", "fileName": "Employee.java", "generatedAt": 2025-08-20T03:07:48.219Z, "id": "error-c5a8c22f-bde2-4fb9-b275-45ab5b2c22a0-1755659268219", "language": "java", "processingTime": 0, "results": {"findings": [{"description": "AI analysis failed: Cannot read properties of undefined (reading 'content')", "id": "error-1755659268219", "location": {"endLine": 1, "startLine": 1}, "severity": "high", "title": "Analysis Error", "type": "error"}], "metadata": {"complexity": 0, "functionsFound": 0, "linesAnalyzed": 0, "patterns": ["error"]}, "recommendations": [{"benefits": ["Successful analysis"], "description": "Check system configuration and try again.", "effort": "low", "id": "error-rec-1755659268219", "priority": "high", "title": "Resolve Analysis Error", "type": "error-resolution"}], "riskLevel": "high", "summary": "Analysis failed: AI analysis failed: Cannot read properties of undefined (reading 'content')"}}]
+
+    [0m [90m 101 |[39m
+     [90m 102 |[39m       [90m// Should have 4 results: 2 files × 2 analysis types[39m
+    [31m[1m>[22m[39m[90m 103 |[39m       expect(analysisResults)[33m.[39mtoHaveLength([35m4[39m)[33m;[39m
+     [90m     |[39m                               [31m[1m^[22m[39m
+     [90m 104 |[39m
+     [90m 105 |[39m       [90m// Generate comprehensive output[39m
+     [90m 106 |[39m       [36mconst[39m outputs [33m=[39m [36mawait[39m outputGenerator[33m.[39mgenerateOutputs(analysisResults[33m,[39m [[32m'html'[39m[33m,[39m [32m'json'[39m[33m,[39m [32m'markdown'[39m])[33m;[39m[0m
+
+      at Object.<anonymous> (tests/integration/mcpWorkflow.test.ts:103:31)
+
+Test Suites: 3 failed, 1 passed, 4 total
+Tests:       13 failed, 52 passed, 65 total
+Snapshots:   0 total
+Time:        7.829 s
+Ran all test suites.
+Test results written to: test-results.json

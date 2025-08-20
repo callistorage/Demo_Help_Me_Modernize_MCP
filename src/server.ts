@@ -10,8 +10,8 @@ import helmet from 'helmet';
 import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { HelpMeModernizeServer } from './mcp/HelpMeModernizeServer';
-import { Logger } from './utils/Logger';
+import { HelpMeModernizeServer } from './mcp/HelpMeModernizeServer.js';
+import { Logger } from './utils/Logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -176,11 +176,11 @@ class WebServer {
         // Parse the result from MCP response
         const mcpResponse = JSON.parse(result.content[0].text || '{}');
         
-        res.json(mcpResponse);
+        return res.json(mcpResponse);
 
       } catch (error) {
         logger.error('Analysis request failed:', error);
-        res.status(500).json({
+        return res.status(500).json({
           success: false,
           error: error instanceof Error ? error.message : 'Analysis failed'
         });
@@ -206,7 +206,7 @@ class WebServer {
           mimeType: file.mimetype
         }));
 
-        res.json({
+        return res.json({
           success: true,
           message: `Successfully uploaded ${files.length} files`,
           files: processedFiles
@@ -214,7 +214,7 @@ class WebServer {
 
       } catch (error) {
         logger.error('File upload failed:', error);
-        res.status(500).json({
+        return res.status(500).json({
           success: false,
           error: error instanceof Error ? error.message : 'Upload failed'
         });
@@ -284,8 +284,11 @@ class WebServer {
 }
 
 // Start the server if this file is run directly
-// For ES modules, we need to check if the resolved filename matches
-const isMainModule = process.argv[1] && __filename === path.resolve(process.argv[1]);
+// For ES modules, we need to check if this is the main module being executed
+const isMainModule = import.meta.url === `file://${process.argv[1]}` || 
+                     __filename === path.resolve(process.argv[1]) ||
+                     process.argv[1]?.endsWith('server.js') ||
+                     process.argv[1]?.endsWith('server.ts');
 
 if (isMainModule) {
   const server = new WebServer();

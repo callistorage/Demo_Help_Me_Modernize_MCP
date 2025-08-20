@@ -1,5 +1,7 @@
 # "Help Me Modernize" - MCP-Powered Legacy Code Documentation Tool
 
+Every major step must be followed by updating the BuildingNotes.md file with what work has been done and why that work was done. 
+
 ## Project Overview
 
 Build a TypeScript-based tool called "Help Me Modernize" that uses the Model Context Protocol (MCP) to help government developers understand, document, and improve legacy code. This project demonstrates the core responsibilities of a Developer Relations Engineer by creating a comprehensive sample application that showcases best practices, serves as educational material, and addresses real developer needs.
