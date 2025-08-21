@@ -1,4 +1,4 @@
-# � Help Me Modernize: Educational Learning Tool
+# Help Me Modernize: Educational Learning Tool
 
 **Learn Modern Development Through Real-World Legacy Code Modernization**
 
