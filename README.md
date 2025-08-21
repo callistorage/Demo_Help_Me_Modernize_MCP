@@ -26,10 +26,10 @@
 - Multi-format output generation (HTML, PDF, JSON, Markdown)
 
 **🛡️ Enterprise Development Practices**
-- Government compliance patterns (FISMA/FedRAMP ready)
+- Enterprise compliance patterns (FISMA/FedRAMP concepts as learning framework)
 - Security-first development with input validation
 - Comprehensive logging and audit trails
-- Air-gapped deployment strategies
+- Air-gapped deployment strategies for educational purposes
 
 **📚 Real-World Problem Solving**
 - Legacy system analysis (COBOL, Java, SQL)
@@ -80,7 +80,7 @@ npm run start:web
 **Phase 1: Foundation** → Understanding MCP architecture and TypeScript setup  
 **Phase 2: Implementation** → Building analysis tools and AI integration  
 **Phase 3: Testing** → Comprehensive testing strategies (65 tests, 80% coverage)  
-**Phase 4: Enterprise** → Government compliance and security patterns  
+**Phase 4: Enterprise** → Compliance and security patterns as educational framework  
 **Phase 5: Deployment** → Production-ready patterns and documentation
 
 ### 📚 **Guided Learning Resources**
@@ -104,9 +104,9 @@ Learning Flow: Web Interface ◄──► MCP Server ◄──► AI Analysis �
 
 ### 🎓 **Teaching Methodology**
 1. **Learn by Doing**: Upload real legacy files and see analysis results
-2. **Code Exploration**: Well-documented TypeScript with educational comments
+2. **Code Exploration**: Well-documented TypeScript with comprehensive educational comments throughout the codebase
 3. **Progressive Complexity**: Start simple, advance to enterprise patterns
-4. **Real-World Context**: Government compliance requirements as learning framework
+4. **Real-World Context**: Enterprise compliance requirements as educational learning framework
 
 ## 💻 Learning Through Practice
 
@@ -151,11 +151,11 @@ npm test -- --grep "unit"   # Study unit vs integration patterns
 # Explore structured output generation
 ```
 
-### **Lab 4: Government Compliance**
+### **Lab 4: Enterprise Compliance Patterns**
 ```bash
 npm audit                 # Security vulnerability assessment
 npm run lint             # Code quality standards (120+ rules)
-# Study air-gapped deployment patterns
+# Study air-gapped deployment patterns for educational purposes
 ```
 
 ## 📚 Educational MCP Integration
@@ -165,27 +165,28 @@ npm run lint             # Code quality standards (120+ rules)
 **MCP Learning Tools** (Study these implementations):
 - `analyze_legacy_code`: Core AI integration patterns and prompt engineering
 - `upload_file`: Secure file processing with validation and error handling  
-- `generate_government_report`: Structured output generation for compliance
+- `generate_report`: Structured output generation for educational purposes
 - `get_analysis_status`: Asynchronous operation management and progress tracking
 
 ### 🎓 **Educational Architecture Benefits**
 - **Centralized Learning**: All business logic in MCP server for focused study
 - **Multiple Interfaces**: Demonstrates extensibility for web, CLI, and API clients
-- **Real-World Patterns**: Government compliance requirements as educational framework
+- **Real-World Patterns**: Enterprise compliance requirements as educational framework
 - **AI Integration**: Production-ready patterns for LLM application development
 
 ### 📖 **Study Guide for MCP Patterns**
-1. **Server Architecture**: Examine `src/mcp/HelpMeModernizeServer.ts` for MCP tool implementation
+1. **Server Architecture**: Examine `src/mcp/HelpMeModernizeServer.ts` for MCP tool implementation with comprehensive educational comments
 2. **Tool Design**: Study how each tool encapsulates specific functionality with type safety
 3. **Integration Patterns**: Understand client-server communication through MCP protocol
 4. **Scaling Strategies**: Learn how MCP enables multiple frontend applications
+5. **Educational Comments**: Follow detailed explanations throughout the codebase for learning guidance
 
 ## 🎯 Educational Assessment
 
 **Self-Assessment Questions**:
 - Can you explain the MCP architecture benefits over traditional REST APIs?
 - How does the testing strategy ensure reliability in AI-integrated applications?
-- What government compliance patterns could apply to other domains?
+- What enterprise compliance patterns could apply to other domains?
 - How would you extend this tool for different programming languages?
 
 **Portfolio Value**: Demonstrates ability to create practical educational tools that teach complex enterprise concepts through hands-on experience.
@@ -218,7 +219,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Learning Community**:
 - **MCP Protocol**: [Anthropic's Model Context Protocol](https://modelcontextprotocol.io/) for teaching AI application architecture
 - **TypeScript Ecosystem**: Enterprise patterns and educational best practices
-- **Government Standards**: Real-world compliance requirements as educational framework
+- **Enterprise Standards**: Real-world compliance requirements as educational framework
 - **Legacy Systems**: Understanding historical context enhances modern development appreciation
 
 **Teaching Philosophy**: Complex enterprise concepts become accessible through practical, hands-on learning experiences that solve real-world problems.
