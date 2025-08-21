@@ -1,7 +1,7 @@
 {
   "name": "help-me-modernize",
   "version": "1.0.0",
-  "description": "MCP-powered legacy code documentation and modernization tool for government developers",
+  "description": "Educational learning tool teaching modern development through legacy code modernization - MCP, AI integration, and enterprise patterns",
   "type": "module",
   "main": "dist/server.js",
   "scripts": {
@@ -22,14 +22,18 @@
     "logs": "tail -f logs/application.log"
   },
   "keywords": [
+    "educational-tool",
+    "learning-platform", 
     "mcp",
     "model-context-protocol",
+    "typescript-education",
+    "ai-integration-tutorial",
+    "enterprise-patterns",
     "legacy-code",
-    "government",
-    "cobol",
     "modernization",
     "claude",
-    "anthropic"
+    "anthropic",
+    "hands-on-learning"
   ],
   "author": "Developer Relations Showcase",
   "license": "MIT",

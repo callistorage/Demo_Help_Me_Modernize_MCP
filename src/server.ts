@@ -1,6 +1,22 @@
 /**
- * Main server entry point
- * Combines MCP server with simple web interface for government users
+ * Educational Learning Tool - Main Web Server
+ * 
+ * 🎓 EDUCATIONAL PURPOSE: This file demonstrates how to integrate an MCP server
+ * with a web interface to create a complete learning platform.
+ * 
+ * 🧠 LEARNING OBJECTIVES:
+ * - Understanding web server setup with Express and security middleware
+ * - File upload handling with validation and security checks
+ * - Integration patterns between web interfaces and MCP servers
+ * - Error handling and logging in production applications
+ * 
+ * 🏗️ ARCHITECTURE: Thin Web Client + MCP Server
+ * - Web interface serves as thin client for user interaction
+ * - MCP server contains all business logic and AI integration
+ * - Clean separation of concerns for maintainability
+ * 
+ * 💡 STUDY FOCUS: Notice how the web server primarily handles HTTP concerns
+ * while delegating all analysis logic to the MCP server.
  */
 
 import 'dotenv/config';
@@ -226,7 +242,7 @@ class WebServer {
       res.json({
         name: 'Help Me Modernize',
         version: '1.0.0',
-        description: 'Government legacy code analysis and modernization tool',
+        description: 'Educational learning tool for modern development patterns through legacy code modernization',
         supportedLanguages: ['cobol', 'java', 'sql', 'text'],
         supportedFormats: ['html', 'markdown', 'json', 'text', 'pdf'],
         analysisTypes: [
@@ -269,7 +285,7 @@ class WebServer {
       
       // Start Express server
       this.app.listen(PORT, () => {
-        logger.info(`Help Me Modernize web server started on port ${PORT}`);
+        logger.info(`Help Me Modernize educational learning tool started on port ${PORT}`);
         logger.info(`Environment: ${NODE_ENV}`);
         logger.info(`Web interface: http://localhost:${PORT}`);
         logger.info(`API endpoint: http://localhost:${PORT}/api`);

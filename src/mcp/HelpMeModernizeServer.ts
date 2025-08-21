@@ -1,12 +1,25 @@
 /**
- * Help Me Modernize - MCP Server
- * Main MCP server for legacy code analysis and modernization
+ * Help Me Modernize - Educational MCP Server
  * 
- * This server implements the Model Context Protocol to provide:
- * - Legacy code analysis (COBOL, Java, SQL)
- * - AI-powered documentation generation
- * - Government compliance checking
- * - Modernization recommendations
+ * 🎓 EDUCATIONAL PURPOSE: This file demonstrates how to build a production-ready
+ * MCP (Model Context Protocol) server that serves as the primary application
+ * architecture, with thin clients connecting via the MCP protocol.
+ * 
+ * 🧠 LEARNING OBJECTIVES:
+ * - Understanding MCP server architecture and tool implementation
+ * - AI integration patterns with structured prompts and error handling
+ * - Enterprise TypeScript patterns with strict type safety
+ * - Government compliance patterns and security considerations
+ * - Multi-format output generation for different audiences
+ * 
+ * 🏗️ ARCHITECTURE PATTERN: MCP Server as Primary Application
+ * - Business logic centralized in MCP server
+ * - Thin clients (web, CLI, API) connect via MCP protocol
+ * - Extensible for multiple frontends and use cases
+ * - AI integration ready for multiple models
+ * 
+ * 💡 STUDY FOCUS: Examine how each tool encapsulates specific functionality
+ * with proper type safety, error handling, and educational value.
  */
 
 import { Server } from '@modelcontextprotocol/sdk/server/index';
